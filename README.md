@@ -2,7 +2,15 @@
 
 **Goal:** Provide a portable shell with utility.
 
-Mount your working directory and credentials.
+## Usage
+
+1. Checkout
+```sh
+git clone https://github.com/coatsnmore/linux-container-workspace
+cd linux-container-workspace
+```
+
+1. Mount your working directory and credentials.
 
 ```sh
 UNIQUE_TAG=ubuntu:coatsn
@@ -13,7 +21,7 @@ docker run -it \
     -it $UNIQUE_TAG
 ```
 
-Includes:
+## Includes:
 - [x] kubectl
 - [x] helm
 - [x] curl
