@@ -1,7 +1,14 @@
 FROM ubuntu:latest
 
-RUN apt-get update \
-    && apt-get install -y curl pgp wget apt-transport-https gnupg2
+RUN apt update
+RUN apt install -y curl pgp wget apt-transport-https gnupg2 dnsutils jq sudo
+
+# install yq
+RUN apt install -y software-properties-common
+RUN apt-key adv --keyserver keyserver.ubuntu.com --recv-keys CC86BB64
+RUN add-apt-repository ppa:rmescandon/yq
+RUN apt update
+RUN apt install -y yq
 
 # install kubectl
 RUN curl -s https://packages.cloud.google.com/apt/doc/apt-key.gpg | apt-key add -
@@ -17,6 +24,8 @@ RUN mv linux-amd64/helm /usr/local/bin/
 
 # TODO: install gcloud SDK + CLI
 
-# TODO: install jq and yq
+RUN adduser --disabled-password --gecos "" ubuntu
+USER ubuntu
+ADD .bashrc /home/ubuntu
 
 WORKDIR /usr/src/app

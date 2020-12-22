@@ -1,0 +1,1 @@
+alias ku=kubectl
