@@ -24,6 +24,9 @@ RUN mv linux-amd64/helm /usr/local/bin/
 
 # TODO: install gcloud SDK + CLI
 
+# TODO: install AWS CLI
+
+# add user
 RUN adduser --disabled-password --gecos "" ubuntu
 USER ubuntu
 ADD .bashrc /home/ubuntu
